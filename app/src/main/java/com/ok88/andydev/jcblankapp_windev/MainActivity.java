@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - get default bluetooth adapter
+//5-1-2015 JChoy - checkBTconnection(); vibrate;
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -18,13 +18,27 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    
-        int state;
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
         prevState=-1;
+        while (true) {
+            checkBTconnection();
+            Thread.sleep(1000);
+        }
+        vibrate(1500);
     }
 
+    private void checkBTconnection(){
+        int state;
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
+        String[] msg= {"NOT connected","connecting","connectED","DISconnecting"};
+        if (!mBluetoothAdapter.isEnabled()) return;
+        state=mBluetoothAdapter.getProfileConnectionState( BluetoothProfile.A2DP);
+        if (prevState != state){
+              vibrate(200);
+              prevState = state;
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
