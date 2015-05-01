@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - android.widget.TextView
+//5-1-2015 JChoy - abandon textView. use Toast.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -29,9 +29,9 @@ public class MainActivity extends ActionBarActivity {
             //Thread.sleep(1000);
         }
         
-        //TextView t=new TextView(this); 
-        TextView t=(TextView)findViewById(R.id.hello_world); 
-        t.setText("Done");
+        Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
+        //TextView t=(TextView)findViewById(R.id.hello_world); 
+        //t.setText("Done");
         //getSupportActionBar().setTitle("Done");  
     }
 
