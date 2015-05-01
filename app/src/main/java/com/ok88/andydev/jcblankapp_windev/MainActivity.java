@@ -1,8 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - This project can be compiled on an Android device with AIDE installed.
-//         After cloning git repos in AIDE, must navigate 
-//         to ./app folder which AIDE recognizes as an Android App project which can be opened.
+//5-1-2015 JChoy - get default bluetooth adapter
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -10,14 +8,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.bluetooth.*;
 
 
 public class MainActivity extends ActionBarActivity {
+    private int prevState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    
+        int state;
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        prevState=-1;
     }
 
 
