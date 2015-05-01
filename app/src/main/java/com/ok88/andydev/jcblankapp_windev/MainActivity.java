@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - Use getSupportActionBar().
+//5-1-2015 JChoy - set text in text view
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -27,6 +27,11 @@ public class MainActivity extends ActionBarActivity {
             checkBTconnection();
             //Thread.sleep(1000);
         }
+        
+        setContentView(R.layout.main);
+        //TextView t=new TextView(this); 
+        t=(TextView)findViewById(R.id.hello_world); 
+        t.setText("Done");
         //getSupportActionBar().setTitle("Done");  
     }
 
