@@ -13,7 +13,7 @@ import android.os.*;
 import android.widget.*;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.lang.InterruptedException;
+//import java.lang.InterruptedException;
 
 public class MainActivity extends ActionBarActivity {
     private int prevState;
@@ -23,12 +23,12 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setTitle("Let's do this");  
+        getSupportActionBar().setTitle("Lets do this");  
 
         prevState=-1;
         for (int i=0; i<1; i++) {
             checkBTconnection();
-            java.util.Date date= new java.util.Date();
+            //java.util.Date date= new java.util.Date();
             //String x= " "+new Timestamp(date.getTime()));
             //try {
             //    Thread.sleep(1000);
