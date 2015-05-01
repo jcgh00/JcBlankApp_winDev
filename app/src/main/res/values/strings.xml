@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Change this title</string>
+    <string name="app_name">JcBlankApp_winDev</string>
 
     <string name="hello_world">Don\'t know how to change this or the value in the object that uses this.</string>
-    <string name="action_settings">v0.1.1002</string>
+    <string name="action_settings">v0.1.1003</string>
 </resources>
