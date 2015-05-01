@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity {
             checkBTconnection();
             Thread.sleep(1000);
         }
-        vibrate(1500);
+        ((Vibrator)getSystemService(VIBRATOR_SERVICE)).vibrate(2000);
     }
 
     private void checkBTconnection(){
@@ -36,8 +36,8 @@ public class MainActivity extends ActionBarActivity {
         if (!mBluetoothAdapter.isEnabled()) return;
         state=mBluetoothAdapter.getProfileConnectionState( BluetoothProfile.A2DP);
         if (prevState != state){
-              vibrate(200);
-              prevState = state;
+            ((Vibrator)getSystemService(VIBRATOR_SERVICE)).vibrate(200);
+            prevState = state;
         }
     }
     @Override
