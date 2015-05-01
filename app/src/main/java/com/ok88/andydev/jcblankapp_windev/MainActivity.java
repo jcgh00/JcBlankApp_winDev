@@ -1,6 +1,8 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
-//              Plan to add this project to git repository
-//              Created as a blank activity with SDK 16 (os4.1)
+//
+//5-1-2015 JChoy - This project can be compiled on an Android device with AIDE installed.
+//         After cloning git repos in AIDE, must navigate 
+//         to ./app folder which AIDE recognizes as an Android App project which can be opened.
 
 package com.ok88.andydev.jcblankapp_windev;
 
