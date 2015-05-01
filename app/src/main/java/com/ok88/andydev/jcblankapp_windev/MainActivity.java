@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - set text in text view
+//5-1-2015 JChoy - android.widget.TextView
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.bluetooth.*;
 import android.os.*;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -28,9 +29,8 @@ public class MainActivity extends ActionBarActivity {
             //Thread.sleep(1000);
         }
         
-        setContentView(R.layout.main);
         //TextView t=new TextView(this); 
-        t=(TextView)findViewById(R.id.hello_world); 
+        TextView t=(TextView)findViewById(R.id.hello_world); 
         t.setText("Done");
         //getSupportActionBar().setTitle("Done");  
     }
