@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - correct import for Toast.
+//5-1-2015 JChoy - debugging try-catch.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -13,6 +13,7 @@ import android.os.*;
 import android.widget.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.lang.InterruptedException;
 
 public class MainActivity extends ActionBarActivity {
     private int prevState;
@@ -29,9 +30,9 @@ public class MainActivity extends ActionBarActivity {
             checkBTconnection();
             java.util.Date date= new java.util.Date();
             //String x= " "+new Timestamp(date.getTime()));
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {}
+            //try {
+            //    Thread.sleep(1000);
+            //} catch (InterruptedException ex) {}
         }
         
         Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
