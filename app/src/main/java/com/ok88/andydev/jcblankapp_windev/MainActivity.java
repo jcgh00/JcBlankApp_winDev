@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - abandon textView. use Toast.
+//5-1-2015 JChoy - correct import for Toast.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -10,8 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.bluetooth.*;
 import android.os.*;
-import android.widget.TextView;
-
+import android.widget.*;
+import java.sql.Timestamp;
+import java.util.Date;
 
 public class MainActivity extends ActionBarActivity {
     private int prevState;
@@ -26,7 +27,11 @@ public class MainActivity extends ActionBarActivity {
         prevState=-1;
         for (int i=0; i<1; i++) {
             checkBTconnection();
-            //Thread.sleep(1000);
+            java.util.Date date= new java.util.Date();
+            //String x= " "+new Timestamp(date.getTime()));
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {}
         }
         
         Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
