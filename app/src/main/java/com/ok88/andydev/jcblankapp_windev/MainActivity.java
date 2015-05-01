@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - debugging try-catch.
+//5-1-2015 JChoy - re-testing textview and try-catch.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -13,7 +13,6 @@ import android.os.*;
 import android.widget.*;
 import java.sql.Timestamp;
 import java.util.Date;
-//import java.lang.InterruptedException;
 
 public class MainActivity extends ActionBarActivity {
     private int prevState;
@@ -26,18 +25,18 @@ public class MainActivity extends ActionBarActivity {
         getSupportActionBar().setTitle("Lets do this");  
 
         prevState=-1;
-        for (int i=0; i<1; i++) {
+        for (int i=0; i<19; i++) {
             checkBTconnection();
             //java.util.Date date= new java.util.Date();
             //String x= " "+new Timestamp(date.getTime()));
-            //try {
-            //    Thread.sleep(1000);
-            //} catch (InterruptedException ex) {}
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {}
         }
         
         Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
-        //TextView t=(TextView)findViewById(R.id.hello_world); 
-        //t.setText("Done");
+        TextView t=(TextView)findViewById(R.id.hello_tv); 
+        t.setText("Done");
         //getSupportActionBar().setTitle("Done");  
     }
 
