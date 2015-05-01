@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - Use actionBar. no vibrate.
+//5-1-2015 JChoy - Use getSupportActionBar().
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -20,14 +20,14 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getActionBar().setTitle("Let's do this");  
+        getSupportActionBar().setTitle("Let's do this");  
 
         prevState=-1;
-        for (var i=0; i<1; i++) {
+        for (int i=0; i<1; i++) {
             checkBTconnection();
             //Thread.sleep(1000);
         }
-        getActionBar().setTitle("Done");  
+        //getSupportActionBar().setTitle("Done");  
     }
 
     private void checkBTconnection(){
@@ -39,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
         state=mBluetoothAdapter.getProfileConnectionState( BluetoothProfile.A2DP);
         if (prevState != state){
             prevState = state;
+            getSupportActionBar().setTitle( msg[state] );  
         }
     }
     @Override
