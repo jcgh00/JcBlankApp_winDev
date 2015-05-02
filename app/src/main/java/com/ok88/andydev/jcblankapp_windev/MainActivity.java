@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setTitle("Lets do this");  
+        //getSupportActionBar().setTitle("Lets do this");  
 
         prevState=-1;
         for (int i=0; i<1; i++) {
@@ -45,12 +45,14 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Toast.makeText(context, "bt-evt", Toast.LENGTH_SHORT).show();
+                TextView t=(TextView)getActivity().findViewById(R.id.hello_tv); 
+                t.setText("Done");
             }
         };
         registerReceiver(receiver, filter);
      
         TextView t=(TextView)findViewById(R.id.hello_tv); 
-        t.setText("Done");
+        t.setText("Started");
         //getSupportActionBar().setTitle("Done");  
     }
 
@@ -61,10 +63,10 @@ public class MainActivity extends ActionBarActivity {
         String[] msg= {"NOT connected","connecting","connectED","DISconnecting"};
         if (!mBluetoothAdapter.isEnabled()) return;
         state=mBluetoothAdapter.getProfileConnectionState( BluetoothProfile.A2DP);
-        if (prevState != state){
-            prevState = state;
-            getSupportActionBar().setTitle( msg[state] );  
-        }
+        //if (prevState != state){
+        //    prevState = state;
+        //    getSupportActionBar().setTitle( msg[state] );  
+        //}
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
