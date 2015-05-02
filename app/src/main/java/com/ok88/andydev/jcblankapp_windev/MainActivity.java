@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - In onReceiver, makeToast needs to use context.
+//5-1-2015 JChoy - vibrate using context.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -44,9 +44,11 @@ public class MainActivity extends ActionBarActivity {
         BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Toast.makeText(context, "bt-evt", Toast.LENGTH_SHORT).show();
-                TextView t=(TextView)getActivity().findViewById(R.id.hello_tv); 
-                t.setText("Done");
+                Toast.makeText(context, "bt-evt", Toast.LENGTH_LONG).show();
+                //TextView t=(TextView)getActivity().findViewById(R.id.hello_tv); 
+                //t.setText("Done");
+                Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(200);
             }
         };
         registerReceiver(receiver, filter);
