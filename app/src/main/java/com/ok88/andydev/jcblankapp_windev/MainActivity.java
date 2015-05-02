@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - mTextView as public member accessible from context.
+//5-1-2015 JChoy - Call checkBTconnection in onReceive.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -27,46 +27,40 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         actTextView = (TextView)findViewById(R.id.hello_tv); 
-
         prevState=-1;
-        for (int i=0; i<1; i++) {
-            checkBTconnection();
-            //java.util.Date date= new java.util.Date();
-            //String x= " "+new Timestamp(date.getTime()));
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {}
-        }
-        
+
         IntentFilter filter = new IntentFilter();
         filter.addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
         
         BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Toast.makeText(context, "bt-evt", Toast.LENGTH_LONG).show();
-                ((MainActivity)context).actTextView.setText("evt");
-                Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-                vibrator.vibrate(200);
+                ((MainActivity)context).checkBTconnection();
             }
         };
         registerReceiver(receiver, filter);
-     
         actTextView.setText("Started");
     }
 
-    private void checkBTconnection(){
+    public void checkBTconnection(){
         int state;
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         String[] msg= {"NOT connected","connecting","connectED","DISconnecting"};
         if (!mBluetoothAdapter.isEnabled()) return;
         state=mBluetoothAdapter.getProfileConnectionState( BluetoothProfile.A2DP);
-        //if (prevState != state){
-        //    prevState = state;
-        //    getSupportActionBar().setTitle( msg[state] );  
-        //}
+        if (prevState != state){
+            prevState = state;
+            java.util.Date date= new java.util.Date();
+            String x= msg[state]+" "+new Timestamp(date.getTime() );
+            actTextView.setText(x);
+
+            Toast.makeText(context, "bt-evt", Toast.LENGTH_LONG).show();
+            Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(200);
+        }
     }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
