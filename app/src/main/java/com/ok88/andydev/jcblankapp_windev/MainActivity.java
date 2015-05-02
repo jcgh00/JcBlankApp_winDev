@@ -52,6 +52,7 @@ public class MainActivity extends ActionBarActivity {
     public void checkBTconnection(){
         int state;
 
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         String[] msg= {"NOT connected","connecting","connectED","DISconnecting"};
         if (!mBluetoothAdapter.isEnabled()) return;
         state=mBluetoothAdapter.getProfileConnectionState( BluetoothProfile.A2DP);
