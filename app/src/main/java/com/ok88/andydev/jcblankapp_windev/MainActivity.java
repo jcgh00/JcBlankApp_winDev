@@ -1,6 +1,7 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - Prevent restart in onConfigurationChanged.
+//5-2-2015 JChoy - Prevent restart in onConfigurationChanged.
+//todo: store events in 100 length log
 
 package com.ok88.andydev.jcblankapp_windev;
 
