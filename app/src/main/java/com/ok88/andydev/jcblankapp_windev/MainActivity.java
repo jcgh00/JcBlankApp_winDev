@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - re-testing textview and try-catch.
+//5-1-2015 JChoy - Fix syntax errors with BroadcastReceiver.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -15,6 +15,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import java.sql.Timestamp;
 import java.util.Date;
+import android.content.Context;
+import android.content.BroadcastReceiver;
 
 public class MainActivity extends ActionBarActivity {
     private int prevState;
@@ -42,12 +44,11 @@ public class MainActivity extends ActionBarActivity {
         BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-              //do something based on the intent's action
+                Toast.makeText(this, "bt-evt", Toast.LENGTH_SHORT).show();
             }
-          }
+        };
         registerReceiver(receiver, filter);
      
-     Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
         TextView t=(TextView)findViewById(R.id.hello_tv); 
         t.setText("Done");
         //getSupportActionBar().setTitle("Done");  
