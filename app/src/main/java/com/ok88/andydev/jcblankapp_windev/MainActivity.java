@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - checkBTenabled.
+//5-1-2015 JChoy - Prevent restart in onConfigurationChanged.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -68,6 +68,14 @@ public class MainActivity extends ActionBarActivity {
         }
     }
     
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+       // ignore orientation change
+       if (newConfig.orientation != Configuration.ORIENTATION_LANDSCAPE) {
+           super.onConfigurationChanged(newConfig);
+       }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
