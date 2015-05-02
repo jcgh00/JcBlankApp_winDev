@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - Fix syntax errors with BroadcastReceiver.
+//5-1-2015 JChoy - In onReceiver, makeToast needs to use context.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
         BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Toast.makeText(this, "bt-evt", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "bt-evt", Toast.LENGTH_SHORT).show();
             }
         };
         registerReceiver(receiver, filter);
