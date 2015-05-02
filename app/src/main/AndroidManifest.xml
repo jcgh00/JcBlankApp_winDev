@@ -12,6 +12,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
+            android:x_screenOrientation="portrait"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" 
+            android:windowSoftInputMode="adjustPan"  
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
