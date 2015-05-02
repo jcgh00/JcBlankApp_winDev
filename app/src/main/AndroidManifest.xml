@@ -3,6 +3,7 @@
     package="com.ok88.andydev.jcblankapp_windev" >
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
