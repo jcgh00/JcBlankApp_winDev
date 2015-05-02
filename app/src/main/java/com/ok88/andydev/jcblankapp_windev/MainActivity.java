@@ -18,6 +18,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import android.content.Context;
 import android.content.BroadcastReceiver;
+import android.content.res.*;
 
 public class MainActivity extends ActionBarActivity {
     private int prevState;
