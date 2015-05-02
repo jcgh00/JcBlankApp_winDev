@@ -21,10 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <x_activity
-            android:screenOrientation="portrait"
-        </x_activity>
-        
+
     </application>
 
 </manifest>
