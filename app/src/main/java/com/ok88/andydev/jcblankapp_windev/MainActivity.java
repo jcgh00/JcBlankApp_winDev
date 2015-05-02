@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - show message if bt is off.
+//5-1-2015 JChoy - checkBTenabled.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -29,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
         actTextView = (TextView)findViewById(R.id.hello_tv); 
         prevState=-1;
 
-        if (!mBluetoothAdapter.isEnabled()) actTextView.setText("Bluetooth OFF");
+        checkBTenabled();
         IntentFilter filter = new IntentFilter();
         filter.addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
         
@@ -43,9 +43,14 @@ public class MainActivity extends ActionBarActivity {
         actTextView.setText("Started");
     }
 
+    public void checkBTenabled(){
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (!mBluetoothAdapter.isEnabled()) 
+            actTextView.setText("Bluetooth OFF");
+    }
+
     public void checkBTconnection(){
         int state;
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         String[] msg= {"NOT connected","connecting","connectED","DISconnecting"};
         if (!mBluetoothAdapter.isEnabled()) return;
