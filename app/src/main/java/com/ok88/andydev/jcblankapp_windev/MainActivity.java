@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - Call checkBTconnection in onReceive.
+//5-1-2015 JChoy - show message if bt is off.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -29,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
         actTextView = (TextView)findViewById(R.id.hello_tv); 
         prevState=-1;
 
+        if (!mBluetoothAdapter.isEnabled()) actTextView.setText("Bluetooth OFF");
         IntentFilter filter = new IntentFilter();
         filter.addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
         
@@ -55,8 +56,8 @@ public class MainActivity extends ActionBarActivity {
             String x= msg[state]+" "+new Timestamp(date.getTime() );
             actTextView.setText(x);
 
-            Toast.makeText(context, "bt-evt", Toast.LENGTH_LONG).show();
-            Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+            Toast.makeText(this, "bt-evt", Toast.LENGTH_LONG).show();
+            Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(200);
         }
     }
