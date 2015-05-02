@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-2-2015 JChoy - Prevent restart in onConfigurationChanged.
+//5-2-2015 JChoy - onConfigurationChanged crashes.
 //todo: store events in 100 length log
 
 package com.ok88.andydev.jcblankapp_windev;
@@ -69,7 +69,8 @@ public class MainActivity extends ActionBarActivity {
             vibrator.vibrate(200);
         }
     }
-    
+
+    /* this crashes when orientation is landscape    
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
        // ignore orientation change
@@ -77,7 +78,8 @@ public class MainActivity extends ActionBarActivity {
            super.onConfigurationChanged(newConfig);
        }
     }
-
+    */
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
