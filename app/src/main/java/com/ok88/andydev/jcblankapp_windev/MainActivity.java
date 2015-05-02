@@ -1,6 +1,6 @@
 //4-30-15 JChoy A blank android app created in AndroidStudio on windows
 //
-//5-1-2015 JChoy - vibrate using context.
+//5-1-2015 JChoy - mTextView as public member accessible from context.
 
 package com.ok88.andydev.jcblankapp_windev;
 
@@ -20,13 +20,13 @@ import android.content.BroadcastReceiver;
 
 public class MainActivity extends ActionBarActivity {
     private int prevState;
+    public TextView actTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //getSupportActionBar().setTitle("Lets do this");  
+        actTextView = (TextView)findViewById(R.id.hello_tv); 
 
         prevState=-1;
         for (int i=0; i<1; i++) {
@@ -45,17 +45,14 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Toast.makeText(context, "bt-evt", Toast.LENGTH_LONG).show();
-                //TextView t=(TextView)getActivity().findViewById(R.id.hello_tv); 
-                //t.setText("Done");
+                ((MainActivity)context).actTextView.setText("evt");
                 Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(200);
             }
         };
         registerReceiver(receiver, filter);
      
-        TextView t=(TextView)findViewById(R.id.hello_tv); 
-        t.setText("Started");
-        //getSupportActionBar().setTitle("Done");  
+        actTextView.setText("Started");
     }
 
     private void checkBTconnection(){
