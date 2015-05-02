@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.bluetooth.*;
 import android.os.*;
 import android.widget.*;
+import android.content.Intent;
+import android.content.IntentFilter;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -25,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
         getSupportActionBar().setTitle("Lets do this");  
 
         prevState=-1;
-        for (int i=0; i<19; i++) {
+        for (int i=0; i<1; i++) {
             checkBTconnection();
             //java.util.Date date= new java.util.Date();
             //String x= " "+new Timestamp(date.getTime()));
@@ -34,7 +36,18 @@ public class MainActivity extends ActionBarActivity {
             } catch (InterruptedException ex) {}
         }
         
-        Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
+        
+        BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+              //do something based on the intent's action
+            }
+          }
+        registerReceiver(receiver, filter);
+     
+     Toast.makeText(this, "Done", Toast.LENGTH_SHORT).show();
         TextView t=(TextView)findViewById(R.id.hello_tv); 
         t.setText("Done");
         //getSupportActionBar().setTitle("Done");  
