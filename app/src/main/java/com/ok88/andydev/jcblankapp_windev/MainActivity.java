@@ -29,7 +29,6 @@ public class MainActivity extends ActionBarActivity {
         actTextView = (TextView)findViewById(R.id.hello_tv); 
         prevState=-1;
 
-        checkBTenabled();
         IntentFilter filter = new IntentFilter();
         filter.addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
         
@@ -40,10 +39,11 @@ public class MainActivity extends ActionBarActivity {
             }
         };
         registerReceiver(receiver, filter);
-        actTextView.setText("Started");
+        checkBTenabled();
     }
 
     public void checkBTenabled(){
+        actTextView.setText("Started");
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (!mBluetoothAdapter.isEnabled()) 
             actTextView.setText("Bluetooth OFF");
